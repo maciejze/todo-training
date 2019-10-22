@@ -1,7 +1,7 @@
 <h1>TODO</h1>
-<ul>
+<app-loader [isLoading]="isLoading"></app-loader>
+<ul *ngIf="!isLoading">
   <li *ngFor="let task of taskList">
-    <app-task [task]="task"></app-task>
+    <app-task (emitFetchTasks)="fetchTasks($event)"  [task]="task"></app-task>
   </li>
 </ul>
-

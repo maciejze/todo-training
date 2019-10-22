@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TaskApiService} from '../task-api.service';
 
 @Component({
@@ -9,12 +9,13 @@ import {TaskApiService} from '../task-api.service';
 export class TaskComponent implements OnInit {
 
   @Input() task: any;
+  @Output() emitFetchTasks = new EventEmitter();
   constructor(private taskApi: TaskApiService) { }
 
   deleteTask() {
     this.taskApi.deleteTask(this.task.id).subscribe(
-      data => {
-
+      next => {
+        this.emitFetchTasks.emit('task deleted');
       }
     );
   }

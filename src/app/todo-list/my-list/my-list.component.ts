@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TaskApiService} from '../task-api.service';
 
 @Component({
@@ -9,16 +9,21 @@ import {TaskApiService} from '../task-api.service';
 export class MyListComponent implements OnInit {
 
   taskList: any;
+  isLoading: boolean;
 
   constructor(private taskApi: TaskApiService) { }
 
   ngOnInit() {
+    this.fetchTasks({});
 
+  }
+
+  fetchTasks(event) {
+    this.isLoading = true;
     this.taskApi.fetchTasks().subscribe(data => {
-      console.log(data);
       this.taskList = data;
+      this.isLoading = false;
     });
-
   }
 
 }

@@ -1,0 +1,13 @@
+<p>add-task-form works!</p>
+
+<form (ngSubmit)="addTask()">
+  <label>Name:
+    <input [(ngModel)]="model.name" type="text" name="name"/>
+  </label>
+  <label>
+    Description:
+    <input [(ngModel)]="model.description" type="text" name="description"/>
+  </label>
+  <button type="submit">Zapisz</button>
+</form>
+{{model | json}}

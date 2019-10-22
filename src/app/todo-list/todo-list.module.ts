@@ -7,14 +7,17 @@ import {TaskComponent} from './task/task.component';
 import {HttpClientModule} from '@angular/common/http';
 import {TaskApiService} from './task-api.service';
 import {FormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
+import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
 
 @NgModule({
-  declarations: [MyListComponent, TaskComponent],
+  declarations: [MyListComponent, TaskComponent, AddTaskFormComponent],
   imports: [
     CommonModule,
     TodoListRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     TaskApiService

@@ -19,4 +19,7 @@ export class TaskApiService {
     return this.httpClient.delete(this.apiUrl + '/tasks/' + id);
   }
 
+  addTask(task) {
+    return this.httpClient.post(this.apiUrl + '/tasks', task);
+  }
 }
