@@ -1,0 +1,4 @@
+<h2>{{task.name}}</h2>
+<p>{{task.description}}</p>
+<label>Czy zrobione: <input [(ngModel)]="task.isDone" type="checkbox"></label>
+<button (click)="deleteTask()">Usuń</button>
